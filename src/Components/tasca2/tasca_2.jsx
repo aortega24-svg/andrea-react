@@ -1,24 +1,59 @@
 import { useState } from "react"; 
-import imatge1 from "../../imatges/imagen1.png";
-import imatge2 from "../../imatges/imagen2.png";
-import imatge3 from "../../imatges/imagen3.png";
-import imatge4 from "../../imatges/imagen4.png";
+import imagens1 from "../../imatges/imagens1.png";
+import imagens2 from "../../imatges/imagens2.png";
+import imagens3 from "../../imatges/imagens3.png";
+import imagens4 from "../../imatges/imagens4.png";
 
-function Component1() {
-  const llistaImatges = [imatge1, imatge2, imatge3, imatge4];
+function Component2() {
+  const imatges = [imagens1, imagens2, imagens3, imagens4];
+  const [index, setIndex] = useState(0);
+
+  const següent = () => {
+    setIndex((prevIndex) => (prevIndex + 1) % imatges.length);
+  };
+
+  const anterior = () => {
+    setIndex((prevIndex) => (prevIndex - 1 + imatges.length) % imatges.length);
+  };
+
+  const imgStyle = {
+    width: '100%',
+    maxWidth: '400px',
+    height: '250px',
+    objectFit: 'cover',
+    borderRadius: '8px',
+    display: 'block',
+    margin: '10px auto'
+  };
 
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
-      {llistaImatges.map((img, index) => (
+    <div style={{ textAlign: 'center', padding: '20px' }}>
+      <h2>Galeria Fotogràfica</h2>
+      
+      <div style={{ position: 'relative', display: 'inline-block' }}>
         <img 
-          key={index} 
-          src={img} 
-          alt={`Foto número ${index + 1}`} 
-          style={{ width: "150px", borderRadius: "10px" }}
+          src={imatges[index]} 
+          alt={`Imatge ${index + 1}`} 
+          style={imgStyle} 
         />
-      ))}
+        <p>Imatge {index + 1} de {imatges.length}</p>
+      </div>
+
+      <div style={{ marginTop: '10px' }}>
+        <button onClick={anterior} style={buttonStyle}>⬅ Anterior</button>
+        <button onClick={següent} style={buttonStyle}>Següent ➡</button>
+      </div>
     </div>
   );
 }
 
-export default Component1;
+const buttonStyle = {
+  padding: '10px 20px',
+  margin: '0 5px',
+  cursor: 'pointer',
+  borderRadius: '5px',
+  border: '1px solid #ccc',
+  backgroundColor: '#f9f9f9'
+};
+
+export default Component2;
