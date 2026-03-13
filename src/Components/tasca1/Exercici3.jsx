@@ -8,7 +8,13 @@ function LoremText() {
 
   return (
     <div>
-      <h2>Lorem Ipsum</h2>
+      <h2 
+          style={{
+              fontWeight: negreta ? 'bold': 'normal',
+              fontStyle: cursiva ? 'italic': 'normal',
+              textDecoration: subratllat ? 'underline': 'none'
+          }}
+      >Lorem Ipsum</h2>
       <div style={{
         margin: '100%',
       }}></div>

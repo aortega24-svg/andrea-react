@@ -4,6 +4,18 @@ function CercleColors() {
 
   const [color, setColor] = useState("gray");
 
+  function blau(){
+    setColor('blue')
+  }
+
+  function vermell(){
+    setColor('red')
+  }
+
+  function groc(){
+    setColor('yellow')
+  }
+
   return (
       <div>
       <h2>Cercle de colors</h2>
