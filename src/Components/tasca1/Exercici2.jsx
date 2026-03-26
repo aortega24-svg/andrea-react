@@ -4,35 +4,34 @@ function CercleColors() {
 
   const [color, setColor] = useState("gray");
 
-  function blau(){
-    setColor('blue')
+  function vermell() {
+    setColor('red');
   }
 
-  function vermell(){
-    setColor('red')
+  function groc() {
+    setColor('yellow');
   }
 
-  function groc(){
-    setColor('yellow')
+  function blau() {
+    setColor('blue');
   }
 
   return (
-      <div>
+    <div>
       <h2>Cercle de colors</h2>
-      <div style={{
-        margin: '100%',
-      }}></div>
 
       <div style={{
         borderRadius: '100%',
-        background: 'grey',
+        backgroundColor: color,
         width: '250px',
         height: '250px',
       }}></div>
 
-      <button onClick={() => setColor("red")}>Vermell</button>
-      <button onClick={() => setColor("blue")}>Blau</button>
-      <button onClick={() => setColor("green")}>Verd</button>
+      <div style={{ textAlign: 'center' }}>
+        <button onClick={vermell}>Vermell</button>
+        <button onClick={blau}>Blau</button>
+        <button onClick={groc}>Groc</button>
+      </div>
     </div>
   );
 }

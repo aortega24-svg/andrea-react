@@ -2,28 +2,35 @@ import { useState } from "react";
 
 function LoremText() {
 
-  const [bold, setBold] = useState(false);
-  const [italic, setItalic] = useState(false);
-  const [underline, setUnderline] = useState(false);
+  const [negreta, setNegreta] = useState(false);
+  const [cursiva, setCursiva] = useState(false);
+  const [subratllat, setSubratllat] = useState(false);
+
+  function onClickCursiva(){
+    setCursiva(!cursiva)
+  }
+
+  function onClickNegreta(){
+    setNegreta(!negreta)
+  }
+
+  function onClickSubrallat(){
+     setSubratllat(!subratllat)
+  }
 
   return (
     <div>
-      <h2 
+      <h2
           style={{
               fontWeight: negreta ? 'bold': 'normal',
               fontStyle: cursiva ? 'italic': 'normal',
               textDecoration: subratllat ? 'underline': 'none'
           }}
+     
       >Lorem Ipsum</h2>
-      <div style={{
-        margin: '100%',
-      }}></div>
-
-
-
-      <button onClick={() => setBold(!bold)}>Negreta</button>
-      <button onClick={() => setItalic(!italic)}>Cursiva</button>
-      <button onClick={() => setUnderline(!underline)}>Subratllat</button>
+      <button onClick={onClickNegreta}>Negreta</button>
+      <button onClick={onClickCursiva}>Cursiva</button>
+      <button onClick={onClickSubrallat}>Subratllat</button>
     </div>
   );
 }
